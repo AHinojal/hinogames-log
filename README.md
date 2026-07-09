@@ -1,3 +1,7 @@
+# [HinoGames Log](https://ahinojal.github.io/hinogames-log/)
+
+------------------------------------
+
 # Astro Starter Kit: Minimal
 
 ```sh
