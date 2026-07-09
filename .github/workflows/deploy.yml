@@ -1,0 +1,52 @@
+# Process name
+name: Deploy Astro
+
+# Branch being executed
+on:
+    push:
+        branches:
+            - master
+
+# Permissions
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+# Tasks
+jobs:
+    # Job's name: Build
+    build:
+        # Virtual machine
+        runs-on: ubuntu-latest
+        steps:
+            # Download repo
+            - uses: actions/checkout@v4
+            # Install node
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '.nvmrc'
+                cache: npm
+            # Install dependencies
+            - run: npm ci
+            # Generates build
+            - run: npm run build
+            # Upload web to generate artifact
+            - uses: actions/upload-pages-artifact@v3
+              with:
+               path: ./dist
+    # Deploy
+    deploy:
+      # what needs
+      needs: build
+      # virtual machine
+      runs-on: ubuntu-latest
+      # set environment to deploy endpoint
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+      steps:
+        # Download artifact
+        - id: deployment
+          # Gets the url page
+          uses: actions/deploy-pages@v4
