@@ -1,8 +1,15 @@
 ---
-
+import { Image } from 'astro:assets';
+import hg_logo from '../../public/hg_logo.png';
 ---
 
 <html lang="en">
+	<style>
+		.head {
+			display: grid;
+  			justify-items: center;
+		}
+	</style>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="hg_favicon.ico" />
@@ -11,6 +18,10 @@
 		<title>HinoGames</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="head">
+			<Image src={hg_logo} alt="HinoGamesLog" width="800" height="318"/>
+			<br>
+			<h1>Now in development...</h1>
+		</div>
 	</body>
 </html>
