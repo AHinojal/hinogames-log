@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import hg_logo from '../../public/hg_logo.png';
+
+interface Props {
+  data: {
+    title: string;
+    platform: string;
+    finishedAt: Date;
+    cover: string;
+  };
+}
+
+const { title, platform, finishedAt, cover } = Astro.props.data;
+const base = import.meta.env.BASE_URL;
+---
+
+<html lang="es">
+	<style>
+		.review-header {
+      display: flex;
+      .cover {
+        /* FIXME: Comprobar como cambia con diferentes portadas 25% es prueba por ahora */
+        width: 25%;
+        margin-right: 20px;
+      }
+      .meta {
+        width: 100%;
+        .finishedAt {
+          display: inline-flex;
+          align-items: center;
+          .date {
+            margin-left: 10px;
+          }
+        }
+      }
+		}
+	</style>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href=href={`${base}hg_favicon.ico`} />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title} - HinoGames</title>
+	</head>
+	<body>
+        <header class="review-header">
+          <img src={`${base}${cover.replace(/^\//, '')}`} alt={`Portada de ${title}`} class="cover" />
+          <div class="meta">
+            <h1>{title}</h1>
+            <h2 class="platform">{platform}</h2>
+            <div class="finishedAt">
+              <span>Fecha de finalización:</span><h4 class="date">{finishedAt.toLocaleDateString('es-ES')}</h4>
+            </div>
+          </div>
+        </header>
+
+        <article class="review-body">
+          <!-- Donde se inyecta el Content pasado por el padre -->
+          <slot /> 
+        </article>
+	</body>
+</html>
