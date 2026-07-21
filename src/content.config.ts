@@ -4,7 +4,7 @@ import { glob } from "astro/loaders";
 
 
 const reviews = defineCollection({
-    // Para avisar al loader desde donde lee y lo que lee
+    // Se encarga de recorrer la url base y buscando archivos que tiene que leer
     loader: glob({ 
         base: './src/content/reviews',
         pattern: '**/*.{md,mdx}'

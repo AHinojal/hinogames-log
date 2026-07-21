@@ -2,19 +2,21 @@
 import { getCollection, render } from 'astro:content';
 import Review from '../../layout/review.astro';
 
+// Obtiene todas las reseñas creadas en content
 export async function getStaticPaths() {
-    // Obtiene todas las reseñas creadas en content
+    // Va al content.config y pilla la variable reviews de la collection
     const reviews = await getCollection('reviews');
     return reviews.map((review: any) => ({
-        params: { id: review.id },
-        props: { review }
+        params: { id: review.id }, // Path del archivo
+        props: { review } // Contenido del archivo
     }));
 }
 
 const { review } = Astro.props;
-const { Content } = await render(review);
+const { Content } = await render(review); // Para renderizar el Markdown
 ---
 
+<!-- Página que genera las rutas con el loader -->
 <Review data={review.data}>
     <Content />
 </Review>

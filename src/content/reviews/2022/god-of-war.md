@@ -9,7 +9,7 @@ Me ha enganchado de principio a fin, algo que hacía tiempo que no me ocurría c
 
 ![](/images/reviews/2022/god-of-war/gif-1.gif)
 
-La historia ha sido desarrollada a la perfección y la relación entre Kratos y Atreus está muy bien llevada
+Historia desarrollada a la perfección y la relación entre Kratos y Atreus está muy bien llevada
 
 ![](/images/reviews/2022/god-of-war/gif-2.gif)
 
