@@ -1,19 +1,37 @@
 ---
-import { Image } from 'astro:assets';
+import '../styles/global.css'
+
+import { Image, Font } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
 import hg_logo from '../../public/hg_logo.png';
+import Card from '../components/card.astro';
 
 const base = import.meta.env.BASE_URL;
+
+const reviews = await getCollection('reviews');
+const juego = reviews[0];
 ---
 
 <html lang="es">
 	<style>
 		.head {
+			height: 318px; /* TODO: Cambiar a 200px cuando la imagen la podamos hacer mas q*/
+			width: 100%;
 			display: grid;
   			justify-items: center;
+			background-color: rgb(252, 0, 24);
+			box-shadow: 0px 10px 20px 8px rgba(255, 255, 255, 0.7);
+		}
+		.container {
+			display: grid;
+  			justify-items: center;
+			margin-top: 50px;
 		}
 	</style>
 	<head>
 		<meta charset="utf-8" />
+		<Font cssVariable="--font-pixel"/>
 		<link rel="icon" href={`${base}hg_favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<title>HinoGames</title>
@@ -21,11 +39,15 @@ const base = import.meta.env.BASE_URL;
 	<body>
 		<div class="head">
 			<Image src={hg_logo} alt="HinoGamesLog" width="800" height="318"/>
-			<br>
+		</div>
+		<div class="container">
 			<h1>Now in development...</h1>
-			<!-- TODO: Hacerlo dinamico por entorno, ahora es prueba solo -->
-			<!-- <a href="https://ahinojal.github.io/hinogames-log/reviews/2022/god-of-war/">God of War - PS4</a> -->
-			<!-- <a href="http://localhost:4321/hinogames-log/reviews/2022/god-of-war/">God of War - PS4</a> -->
+			<!-- TODO: Lista de cartas -->
+			<br><br>
+			<Card game={juego}></Card>
+		</div>
+		<div class="container">
+			<Card game={juego}></Card>
 		</div>
 	</body>
 </html>

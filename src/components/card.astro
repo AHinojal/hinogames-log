@@ -1,0 +1,39 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  game: {
+    id: string;
+    data: {
+        title: string;
+        platform: string;
+        finishedAt: Date;
+        cover: string;
+    }
+
+  };
+}
+const { game } = Astro.props;
+const { title, platform, finishedAt, cover } = game.data;
+const BASE_URL = import.meta.env.BASE_URL;
+
+const coverPath: string = `${BASE_URL}${cover.replace(/^\//, '')}`;
+const platformLogoPath: string = `${BASE_URL}/images/platforms/${platform}.svg`;
+---
+
+<html lang="es">
+	<body>
+	<a href={`${BASE_URL}reviews/${game.id}/`} class="card">
+        <img src={coverPath} alt={`Portada de ${title}`} class="cover"/>
+        <div class="info">
+            <h1>{title}</h1>
+            <span
+                class="platform"
+                style={`--icon: url(${platformLogoPath})`}>
+            </span>
+            <!-- <img src={platformLogoPath} alt=`${platform}` class="platform"/> -->
+            <h4 class="date">{finishedAt.toLocaleDateString('es-ES')}</h4>
+        </div>
+    </a>
+	</body>
+</html>

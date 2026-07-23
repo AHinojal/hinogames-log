@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    width: 100%;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+h1 {
+    color: white;
+    font-family: var(--font-pixel);
+    margin: 0;
+    font-size: 40px;
+}
+h3 {
+    color: white;
+    font-family: var(--font-pixel);
+    margin: 0;
+    font-size: 16px;
+}
+h4 {
+    color: white;
+    font-family: var(--font-pixel);
+    margin: 0;
+    font-size: 16px;
+}
+span {
+    color: white;
+    font-family: var(--font-pixel);
+    margin: 0;
+    font-size: 16px;
+}
+.container {
+    padding: 30px;
+}
+/* Card style */
+.card {
+    display: flex;
+    width: auto;
+    height: 150px;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    .cover {
+        margin-right: 10px;
+        border-radius: 6px;
+    }
+    .info {
+        width: 100%;
+        h1 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .platform {
+            display: inline-block;
+            width: 80px;
+            height: 15px;
+            background-color: var(--platform-color, white);
+            -webkit-mask-image: var(--icon);
+            mask-image: var(--icon);
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+        }
+    }
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 2px solid rgba(179, 62, 102, 1);
+        outline: 3px solid rgba(179, 62, 102, 1);
+        box-shadow: 10px 10px 10px 0px rgba(255, 255, 255, 0.7);
+        h1 {
+            color: black;
+        }
+        .platform {
+           background-color: var(--platform-color, black);
+        }
+        .date {
+            color: black;
+        }
+    }
+}
