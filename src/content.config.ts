@@ -14,6 +14,7 @@ const reviews = defineCollection({
         cover: z.string(),
         title: z.string(),
         platform: z.string(),
+        releaseDate: z.string(),
         finishedAt: z.coerce.date()
     })
 });

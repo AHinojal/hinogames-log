@@ -1,3 +1,4 @@
+/* Basic styles */
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +35,14 @@ span {
     margin: 0;
     font-size: 16px;
 }
+/* Common components styles */
 .container {
     padding: 30px;
 }
 /* Card style */
 .card {
     display: flex;
-    width: auto;
+    max-width: 350px;
     height: 150px;
     border: 2px solid white;
     border-radius: 12px;
@@ -85,4 +87,63 @@ span {
             color: black;
         }
     }
+}
+/* Review style*/
+.review-header {
+    display: flex;
+    width: auto;
+    height: 300px;
+    border: 4px solid aquamarine;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 20px;
+    .cover {
+        /* FIXME: Comprobar como cambia con diferentes portadas 25% es prueba por ahora */
+        width: 25%;
+        margin-right: 20px;
+    }
+    .platform {
+        height: 30px;
+    }
+    .info-game {
+        display: grid;
+        align-content: space-between;
+        width: 100%;
+        .platform {
+            display: inline-block;
+            width: 190px;
+            height: 35px;
+            background-color: var(--platform-color, white);
+            -webkit-mask-image: var(--icon);
+            mask-image: var(--icon);
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+        }
+        .releaseDate {
+            display: inline-flex;
+            align-items: center;
+            .date {
+                margin-left: 10px;
+            }
+        }        
+        .finishedAt {
+            display: inline-flex;
+            align-items: center;
+            .date {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+.review-body {
+    display: grid;
+    gap: 20px;
+    border: 4px solid aquamarine;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
 }

@@ -49,11 +49,10 @@ const juego = reviews[0];
 			<h1>Now in development...</h1>
 		</div>
 		<div class="container">
-			<!-- TODO: Lista de cartas -->
-			<Card game={juego}></Card>
-			<Card game={juego}></Card>
-			<Card game={juego}></Card>
-			<Card game={juego}></Card>
+			{reviews.map((game) => (
+					<Card game={game}></Card>
+				))
+			}
 		</div>
 	</body>
 </html>
