@@ -23,10 +23,15 @@ const juego = reviews[0];
 			background-color: rgb(252, 0, 24);
 			box-shadow: 0px 10px 20px 8px rgba(255, 255, 255, 0.7);
 		}
-		.container {
+		.patata {
 			display: grid;
   			justify-items: center;
 			margin-top: 50px;
+		}	
+		.container {
+			display: grid;
+    		grid-template-columns: auto auto auto;
+  			gap: 20px;
 		}
 	</style>
 	<head>
@@ -40,13 +45,14 @@ const juego = reviews[0];
 		<div class="head">
 			<Image src={hg_logo} alt="HinoGamesLog" width="800" height="318"/>
 		</div>
-		<div class="container">
+		<div class="patata">
 			<h1>Now in development...</h1>
-			<!-- TODO: Lista de cartas -->
-			<br><br>
-			<Card game={juego}></Card>
 		</div>
 		<div class="container">
+			<!-- TODO: Lista de cartas -->
+			<Card game={juego}></Card>
+			<Card game={juego}></Card>
+			<Card game={juego}></Card>
 			<Card game={juego}></Card>
 		</div>
 	</body>
