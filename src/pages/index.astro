@@ -6,33 +6,25 @@ import { getCollection } from 'astro:content';
 
 import hg_logo from '../../public/hg_logo.png';
 import Card from '../components/card.astro';
+import Selector from '../components/selector.astro';
 
 const base = import.meta.env.BASE_URL;
 
 const reviews = await getCollection('reviews');
-const juego = reviews[0];
+const listYears: Set<number> = new Set();
+const sortedReviews = reviews.sort((a, b) => a.data.finishedAt.getTime() - b.data.finishedAt.getTime());
+sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 ---
 
 <html lang="es">
 	<style>
-		.head {
-			height: 318px; /* TODO: Cambiar a 200px cuando la imagen la podamos hacer mas q*/
-			width: 100%;
-			display: grid;
-  			justify-items: center;
-			background-color: rgb(252, 0, 24);
-			box-shadow: 0px 10px 20px 8px rgba(255, 255, 255, 0.7);
-		}
+		/* TODO: Borrar la clase patata cuando se pase a produccion con todos los datos */
 		.patata {
 			display: grid;
   			justify-items: center;
 			margin-top: 50px;
 		}	
-		.container {
-			display: grid;
-    		grid-template-columns: auto auto auto;
-  			gap: 20px;
-		}
+
 	</style>
 	<head>
 		<meta charset="utf-8" />
@@ -48,8 +40,9 @@ const juego = reviews[0];
 		<div class="patata">
 			<h1>Now in development...</h1>
 		</div>
-		<div class="container">
-			{reviews.map((game) => (
+		<Selector listYears={listYears}></Selector>
+		<div class="list-games">
+			{sortedReviews.map((game) => (
 					<Card game={game}></Card>
 				))
 			}

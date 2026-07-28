@@ -10,7 +10,6 @@ interface Props {
         finishedAt: Date;
         cover: string;
     }
-
   };
 }
 const { game } = Astro.props;
@@ -21,18 +20,14 @@ const coverPath: string = `${BASE_URL}${cover.replace(/^\//, '')}`;
 const platformLogoPath: string = `${BASE_URL}/images/platforms/${platform}.svg`;
 ---
 
-<html lang="es">
-	<body>
-	<a href={`${BASE_URL}reviews/${game.id}/`} class="card">
-        <img src={coverPath} alt={`Portada de ${title}`} class="cover"/>
-        <div class="info">
-            <h1>{title}</h1>
-            <span
-                class="platform"
-                style={`--icon: url(${platformLogoPath})`}>
-            </span>
-            <h4 class="date">{finishedAt.toLocaleDateString('es-ES')}</h4>
-        </div>
-    </a>
-	</body>
-</html>
+<a data-year={finishedAt.getFullYear()} href={`${BASE_URL}reviews/${game.id}/`} class="card">
+    <img src={coverPath} alt={`Portada de ${title}`} class="cover"/>
+    <div class="info">
+        <h1>{title}</h1>
+        <span
+            class="platform"
+            style={`--icon: url(${platformLogoPath})`}>
+        </span>
+        <h4 class="date">{finishedAt.toLocaleDateString('es-ES')}</h4>
+    </div>
+</a>
