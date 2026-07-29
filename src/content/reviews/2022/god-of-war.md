@@ -1,6 +1,7 @@
 ---
 title: "God of War"
-platform: "PlayStation 4"
+platform: "PS4"
+releaseDate: "2018"
 finishedAt: 2022-03-22
 cover: "/images/reviews/2022/god-of-war/cover.jpg"
 ---

@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import Summary from '../../layout/summary.astro';
+
+// Obtiene todas las reseñas creadas en content
+export async function getStaticPaths() {
+    // Va al content.config y pilla la variable reviews de la collection
+    const reviews = await getCollection('summaries');
+    return reviews.map((summary: any) => ({
+        params: { id: summary.id }, // Path del archivo
+        props: { summary } // Contenido del archivo
+    }));
+}
+
+const { summary } = Astro.props;
+const { Content } = await render(summary); // Para renderizar el Markdown
+---
+
+<!-- Página que genera las rutas con el loader -->
+<Summary data={summary.data}>
+    <Content />
+</Summary>
