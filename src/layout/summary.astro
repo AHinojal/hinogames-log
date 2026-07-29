@@ -1,0 +1,39 @@
+---
+import '../styles/global.css'
+
+import { Font } from 'astro:assets';
+
+interface Props {
+  data: {
+    title: string;
+  };
+}
+
+const { title } = Astro.props.data;
+const base = import.meta.env.BASE_URL;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+    <Font cssVariable="--font-pixel"/>
+    <!-- <Font cssVariable="--font-poppins"/> -->
+		<link rel="icon" href=href={`${base}hg_favicon.ico`} />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title} - HinoGames</title>
+	</head>
+	<body>
+    <div class="container">
+      <header class="review-header">
+        <div class="info-game">
+          <h1>{title}</h1>
+        </div>
+      </header>
+
+      <article class="review-body">
+        <!-- Donde se inyecta el Content pasado por el padre -->
+        <slot /> 
+      </article>
+    </div>
+	</body>
+</html>

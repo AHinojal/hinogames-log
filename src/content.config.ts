@@ -18,5 +18,16 @@ const reviews = defineCollection({
         finishedAt: z.coerce.date()
     })
 });
+const summaries = defineCollection({
+    // Se encarga de recorrer la url base y buscando archivos que tiene que leer
+    loader: glob({ 
+        base: './src/content/summaries',
+        pattern: '**/*.{md,mdx}'
+    }),
+    // Similar a una interface
+    schema: z.object({
+        title: z.string(),
+    })
+});
 
-export const collections = { reviews }
+export const collections = { reviews, summaries }

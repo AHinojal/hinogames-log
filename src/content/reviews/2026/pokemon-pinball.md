@@ -10,7 +10,7 @@ Uno de los juegos de mi niñez, regalado por el Ratoncito Pérez en su momento
 
 ![](/images/reviews/2026/pokemon-pinball/gif-1.gif)
 
-Engancha, pero completar la Pokédez es una odisea entre la aleatoriedad de captura y la propia dificultad.
+Engancha, pero completar la Pokédex es una odisea entre la aleatoriedad de captura y la propia dificultad.
 
 ![](/images/reviews/2026/pokemon-pinball/gif-2.gif)
 
