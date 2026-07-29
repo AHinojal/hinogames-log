@@ -17,15 +17,6 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 ---
 
 <html lang="es">
-	<style>
-		/* TODO: Borrar la clase patata cuando se pase a produccion con todos los datos */
-		.patata {
-			display: grid;
-  			justify-items: center;
-			margin-top: 50px;
-		}	
-
-	</style>
 	<head>
 		<meta charset="utf-8" />
 		<Font cssVariable="--font-pixel"/>
@@ -36,9 +27,6 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 	<body>
 		<div class="head">
 			<Image src={hg_logo} alt="HinoGamesLog" width="800" height="318"/>
-		</div>
-		<div class="patata">
-			<h1>Now in development...</h1>
 		</div>
 		<Selector listYears={listYears}></Selector>
 		<div class="list-games">
