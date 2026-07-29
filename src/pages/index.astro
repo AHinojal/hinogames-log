@@ -1,19 +1,25 @@
 ---
-import { Image } from 'astro:assets';
+import '../styles/global.css'
+
+import { Image, Font } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
 import hg_logo from '../../public/hg_logo.png';
+import Card from '../components/card.astro';
+import Selector from '../components/selector.astro';
 
 const base = import.meta.env.BASE_URL;
+
+const reviews = await getCollection('reviews');
+const listYears: Set<number> = new Set();
+const sortedReviews = reviews.sort((a, b) => a.data.finishedAt.getTime() - b.data.finishedAt.getTime());
+sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 ---
 
 <html lang="es">
-	<style>
-		.head {
-			display: grid;
-  			justify-items: center;
-		}
-	</style>
 	<head>
 		<meta charset="utf-8" />
+		<Font cssVariable="--font-pixel"/>
 		<link rel="icon" href={`${base}hg_favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<title>HinoGames</title>
@@ -21,11 +27,13 @@ const base = import.meta.env.BASE_URL;
 	<body>
 		<div class="head">
 			<Image src={hg_logo} alt="HinoGamesLog" width="800" height="318"/>
-			<br>
-			<h1>Now in development...</h1>
-			<!-- TODO: Hacerlo dinamico por entorno, ahora es prueba solo -->
-			<!-- <a href="https://ahinojal.github.io/hinogames-log/reviews/2022/god-of-war/">God of War - PS4</a> -->
-			<!-- <a href="http://localhost:4321/hinogames-log/reviews/2022/god-of-war/">God of War - PS4</a> -->
+		</div>
+		<Selector listYears={listYears}></Selector>
+		<div class="list-games">
+			{sortedReviews.map((game) => (
+					<Card game={game}></Card>
+				))
+			}
 		</div>
 	</body>
 </html>

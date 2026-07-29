@@ -1,0 +1,55 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  listYears: Set<number>
+}
+
+const { listYears } = Astro.props;
+const LIST_YEARS = Array.from(listYears);
+---
+
+<div class="list-years">
+	{LIST_YEARS.map((year) => (
+		<span data-year={year}>{year}</span>
+	))}
+</div>
+
+<script>
+	function updateVisibleCards(selectedYear: string) {
+		cards.forEach((card) => {
+			if (card.dataset.year === selectedYear) {
+				card.style.display = '';
+			} else{
+				card.style.display = 'none';
+			}
+		});
+	}	
+	function updateSelectedYearStyle(selectedYear: string) {
+		years.forEach((year) => {
+			if (year.dataset.year === selectedYear) {
+				year.classList.add('selected');
+			} else {
+				year.classList.remove('selected');
+			}
+		});
+	}
+	// Seleccionamos todos los span de los años
+	const years = document.querySelectorAll<HTMLElement>('.list-years span');
+	// Hacemos lo mismo con las tarjeta
+	const cards = document.querySelectorAll<HTMLElement>('.list-games .card');
+	// Mostramos como estado inicial solo las tarjetas de este año actual
+	let selectedYear: string = new Date().getFullYear().toString();
+	updateVisibleCards(selectedYear);
+	updateSelectedYearStyle(selectedYear);
+	// Por cada año, tenemos que escuchar el evento si el boton es pulsado
+	years.forEach((year) => {
+		year.addEventListener('click', () => {
+			// Guardamos el año seleccionado
+			selectedYear = year.dataset.year || new Date().getFullYear().toString();
+			// Buscamos entre las cartas que tenemos y elegimos su visiblidad
+			updateVisibleCards(selectedYear);
+			updateSelectedYearStyle(selectedYear);
+		});
+	});
+</script>
