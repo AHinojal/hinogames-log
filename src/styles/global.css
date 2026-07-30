@@ -6,9 +6,7 @@
 }
 body {
     width: 100%;
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
     color: white;
 }
 h1 {
@@ -40,20 +38,34 @@ span {
     padding: 30px;
 }
 /* Home page style */
-.head {
-    height: 318px; /* TODO: Cambiar a 200px cuando la imagen la podamos hacer mas pequeña */
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    background-color: rgb(252, 0, 24);
-    box-shadow: 0px 10px 20px 8px rgba(255, 255, 255, 0.7);
-}
 .list-games {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-between;
     gap: 20px;
     padding: 30px;
+}
+/* Header style */
+.head {
+    position: relative;
+    width: 100%;
+    .head-background {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        filter: drop-shadow(5px 5px 3px rgba(255, 255, 255, 0.7));
+    }
+    .head-logo {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 285px;
+        height: auto;
+        border: 2px solid white;
+        box-shadow: 3px 5px 6px black
+    } 
 }
 /* Selector style */
 .list-years {

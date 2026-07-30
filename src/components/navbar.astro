@@ -9,11 +9,11 @@ const { listYears } = Astro.props;
 const LIST_YEARS = Array.from(listYears);
 ---
 
-<div class="list-years">
+<ul class="list-years">
 	{LIST_YEARS.map((year) => (
-		<span data-year={year}>{year}</span>
+		<li data-year={year}>{year}</li>
 	))}
-</div>
+</ul>
 
 <script>
 	function updateVisibleCards(selectedYear: string) {

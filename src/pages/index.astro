@@ -1,12 +1,12 @@
 ---
 import '../styles/global.css'
 
-import { Image, Font } from 'astro:assets';
+import { Font } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
-import hg_logo from '../../public/hg_logo.png';
 import Card from '../components/card.astro';
-import Selector from '../components/selector.astro';
+import Header from '../components/header.astro';
+import Navbar from '../components/navbar.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -25,10 +25,8 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 		<title>HinoGames</title>
 	</head>
 	<body>
-		<div class="head">
-			<Image src={hg_logo} alt="HinoGamesLog" width="800" height="318"/>
-		</div>
-		<Selector listYears={listYears}></Selector>
+		<Header></Header>
+		<Navbar listYears={listYears}></Navbar>
 		<div class="list-games">
 			{sortedReviews.map((game) => (
 					<Card game={game}></Card>
