@@ -4,6 +4,7 @@ platform: "PC"
 releaseDate: "2003"
 finishedAt: 2099-12-31
 cover: "/images/reviews/2026/prince-of-persia-tsot/cover.jpg"
+isDraft: true
 ---
 
 Años con el juego guardado y por fin me digno a jugar, con parche para usar mando mediante.

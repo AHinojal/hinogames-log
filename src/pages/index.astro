@@ -10,7 +10,7 @@ import Selector from '../components/selector.astro';
 
 const base = import.meta.env.BASE_URL;
 
-const reviews = await getCollection('reviews');
+const reviews = await getCollection('reviews', (review) => !review.data.isDraft);
 const listYears: Set<number> = new Set();
 const sortedReviews = reviews.sort((a, b) => a.data.finishedAt.getTime() - b.data.finishedAt.getTime());
 sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));

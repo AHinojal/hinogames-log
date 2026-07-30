@@ -4,6 +4,7 @@ platform: "PS5"
 releaseDate: "2021"
 finishedAt: 2099-12-31
 cover: "/images/reviews/2026/it-takes-two/cover.jpg"
+isDraft: true
 ---
 
 Totalmente enamorado de la jugabilidad con la cantidad de mecánicas que se dan durante el juego.
