@@ -257,6 +257,15 @@ span {
     border-radius: 12px;
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    p {
+        font-size: 18px;
+        img {
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 12px;
+            border: 1px solid white;
+        }
+    }
 }
 
 /* Mobile style */
@@ -334,6 +343,22 @@ span {
         }
     }
     .review-body {
+        p {
+            font-size: 16px;
+            img {
+                max-width: 300px;
+                border-radius: 12px;
+                border: 1px solid white;
+            }
+        }
+    }
+    /* Summary style */
+    .summary-header {
+        h1 {
+            font-size: 25px;
+        }
+    }
+    .summary-body {
         p {
             font-size: 16px;
             img {
