@@ -5,7 +5,8 @@ import Review from '../../layout/review.astro';
 // Obtiene todas las reseñas creadas en content
 export async function getStaticPaths() {
     // Va al content.config y pilla la variable reviews de la collection
-    const reviews = await getCollection('reviews');
+    // Se hace filtrado de las reviews que estan en modo draft en el segundo argumento
+    const reviews = await getCollection('reviews', (review) => !review.data.isDraft);
     return reviews.map((review: any) => ({
         params: { id: review.id }, // Path del archivo
         props: { review } // Contenido del archivo

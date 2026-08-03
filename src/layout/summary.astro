@@ -3,6 +3,8 @@ import '../styles/global.css'
 
 import { Font } from 'astro:assets';
 
+import Subheader from '../components/subheader.astro';
+
 interface Props {
   data: {
     title: string;
@@ -18,19 +20,20 @@ const base = import.meta.env.BASE_URL;
 		<meta charset="utf-8" />
     <Font cssVariable="--font-pixel"/>
     <!-- <Font cssVariable="--font-poppins"/> -->
-		<link rel="icon" href=href={`${base}hg_favicon.ico`} />
+		<link rel="icon" href={`${base}hg_favicon.ico`} />
 		<meta name="viewport" content="width=device-width" />
 		<title>{title} - HinoGames</title>
 	</head>
 	<body>
+    <Subheader></Subheader>
     <div class="container">
-      <header class="review-header">
+      <header class="summary-header">
         <div class="info-game">
-          <h1>{title}</h1>
+          <h1>=== {title} ===</h1>
         </div>
       </header>
 
-      <article class="review-body">
+      <article class="summary-body">
         <!-- Donde se inyecta el Content pasado por el padre -->
         <slot /> 
       </article>

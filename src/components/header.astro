@@ -1,0 +1,14 @@
+---
+import '../styles/global.css'
+
+import { Image } from 'astro:assets';
+import hg_logo from '../../public/hg_logo.png';
+
+const BASE_URL = import.meta.env.BASE_URL;
+const header = `${BASE_URL}header.svg`;
+---
+
+<div class="head">
+    <img src={header} alt="" class="head-background"/>
+    <Image src={hg_logo} alt="HinoGamesLog" width="1500" height="597" class="head-logo"/>
+</div>
