@@ -86,7 +86,7 @@ span {
         display: inline-flex;
         border-radius: 12px;
         padding: 10px;
-        background-color: rgba(0, 0, 0, .4);
+        background-color: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(10px);  
         li {
             list-style: none;
@@ -122,12 +122,14 @@ span {
     display: flex;
     max-width: 350px;
     height: 150px;
-    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
     border-radius: 12px;
     padding: 10px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     .cover {
+        object-fit: cover;
         margin-right: 10px;
         border-radius: 6px;
     }
@@ -153,9 +155,9 @@ span {
         }
     }
     &:hover {
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.5);
         border: 2px solid rgba(179, 62, 102, 1);
-        outline: 3px solid rgba(179, 62, 102, 1);
+        outline: 2px solid rgba(179, 62, 102, 1);
         box-shadow: 10px 10px 10px 0px rgba(255, 255, 255, 0.7);
         h1 {
             color: black;
@@ -173,19 +175,16 @@ span {
     display: flex;
     width: auto;
     height: 300px;
-    border: 4px solid aquamarine;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
     .cover {
-        /* FIXME: Comprobar como cambia con diferentes portadas 25% es prueba por ahora */
-        width: 25%;
+        object-fit: cover;
         margin-right: 20px;
-    }
-    .platform {
-        height: 30px;
     }
     .info-game {
         display: grid;
@@ -222,7 +221,39 @@ span {
 .review-body {
     display: grid;
     gap: 20px;
-    border: 4px solid aquamarine;
+    background-color: rgba(0, 0, 0, .4);
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    p {
+        font-size: 18px;
+        img {
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 12px;
+            border: 1px solid white;
+        }
+    }
+}
+
+/* Summary style*/
+.summary-header {
+    display: inline-flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+.summary-body {
+    display: grid;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, .4);
+    border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
@@ -264,6 +295,54 @@ span {
     .card {
         margin-bottom: 20px;
     }
+
+    /* Review style*/
+    .container {
+        padding: 30px 15px;
+    }
+    .review-header {
+        width: auto;
+        height: auto;
+        padding: 15px;
+        h1 {
+            font-size: 15px;
+        }
+        span {
+            font-size: 10px;
+        }
+        .cover {
+            width: clamp(120px, 25vw, 200px);
+            height: clamp(150px, 33vw, 260px);
+            object-fit: contain;
+            margin-right: 15px;
+        }
+        .info-game {
+            gap: 10px;
+            .platform {
+                height: 25px;
+            }
+            .releaseDate {
+                .date {
+                    margin-left: 5px;
+                }
+            }        
+            .finishedAt {
+                .date {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .review-body {
+        p {
+            font-size: 16px;
+            img {
+                max-width: 300px;
+                border-radius: 12px;
+                border: 1px solid white;
+            }
+        }
+    }
 }
 /* Web style */
 @media (min-width: 601px) {
@@ -301,6 +380,15 @@ span {
         justify-content: space-between;
         gap: 20px;
         padding: 30px;
+    }
+    /* Review style */
+    .review-body {
+        p {
+            img {
+                min-width: 300px;
+                max-width: 500px;
+            }
+        }
     }
 }
 

@@ -27,13 +27,13 @@ const base = import.meta.env.BASE_URL;
 	<body>
     <Subheader></Subheader>
     <div class="container">
-      <header class="review-header">
+      <header class="summary-header">
         <div class="info-game">
-          <h1>{title}</h1>
+          <h1>=== {title} ===</h1>
         </div>
       </header>
 
-      <article class="review-body">
+      <article class="summary-body">
         <!-- Donde se inyecta el Content pasado por el padre -->
         <slot /> 
       </article>
