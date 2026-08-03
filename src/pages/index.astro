@@ -26,7 +26,9 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 	</head>
 	<body>
 		<Header></Header>
-		<Navbar listYears={listYears}></Navbar>
+		<div class="navbar">
+			<Navbar listYears={listYears}></Navbar>
+		</div>
 		<div class="list-games">
 			{sortedReviews.map((game) => (
 					<Card game={game}></Card>
