@@ -6,9 +6,7 @@
 }
 body {
     width: 100%;
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%);
     color: white;
 }
 h1 {
@@ -37,55 +35,101 @@ span {
 }
 /* Common components styles */
 .container {
+    display: grid;
     padding: 30px;
 }
-/* Home page style */
+/* Header style */
 .head {
-    height: 318px; /* TODO: Cambiar a 200px cuando la imagen la podamos hacer mas pequeña */
+    position: relative;
     width: 100%;
-    display: grid;
-    justify-items: center;
-    background-color: rgb(252, 0, 24);
-    box-shadow: 0px 10px 20px 8px rgba(255, 255, 255, 0.7);
-}
-.list-games {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 30px;
-}
-/* Selector style */
-.list-years {
-    display: flex;
-    justify-content: space-around;
-    border: 2px solid white;
-    border-radius: 12px;
-    padding: 10px;
-    margin: 50px 30px 10px;
-    span {
-        font-size: 30px;
-        &.selected {
-            color: yellow;
-        }
-        &:hover {
-            font-size: 35px;
-            cursor: pointer;
-            color: red;
-        }
+    .head-background {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        filter: drop-shadow(5px 5px 3px rgba(255, 255, 255, 0.7));
+    }
+    .head-logo {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 285px;
+        height: auto;
+        box-shadow: 3px 5px 6px black
+    } 
+}/* Subheader style */
+.subhead {
+    position: relative;
+    width: 100%;
+    background-color: rgba(237,51,59);
+    min-height: 100px;
+    box-shadow: 0px 5px 3px rgba(255, 255, 255, 0.7);
+    a {
+        cursor: pointer;
+        .head-logo {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 160px;
+            height: auto;
+            box-shadow: 3px 5px 6px black
+        } 
     }
 }
+/* Navbar style */
+.navbar {
+    display: flex;
+    justify-content: center;
+    .list-years {
+        display: inline-flex;
+        border-radius: 12px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);  
+        li {
+            list-style: none;
+            margin: 0 8px;
+            position: relative;
+            cursor: pointer;
+            white-space: nowrap;
+            &::before {
+                content: " ";
+                position: absolute;
+                top: 0;
+                left:0;
+                height:100%;
+                width: 100%;
+                z-index: -1;
+                transition: .2s;
+                border-radius: 6px;
+            }
+            &.selected {
+                color: black;
+                &::before {
+                    background: linear-gradient(to right, #EB3349 0%, #F45C43 51%, #EB3349 100%);
+                        box-shadow: 0px 3px 20px 0px black;
+                        transform: scale(1.5);
+                }
+            }
+        }
+    }
+} 
+
 /* Card style */
 .card {
     display: flex;
     max-width: 350px;
     height: 150px;
-    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
     border-radius: 12px;
     padding: 10px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     .cover {
+        object-fit: cover;
         margin-right: 10px;
         border-radius: 6px;
     }
@@ -111,15 +155,15 @@ span {
         }
     }
     &:hover {
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.5);
         border: 2px solid rgba(179, 62, 102, 1);
-        outline: 3px solid rgba(179, 62, 102, 1);
+        outline: 2px solid rgba(179, 62, 102, 1);
         box-shadow: 10px 10px 10px 0px rgba(255, 255, 255, 0.7);
         h1 {
             color: black;
         }
         .platform {
-           background-color: var(--platform-color, black);
+        background-color: var(--platform-color, black);
         }
         .date {
             color: black;
@@ -131,19 +175,16 @@ span {
     display: flex;
     width: auto;
     height: 300px;
-    border: 4px solid aquamarine;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
     .cover {
-        /* FIXME: Comprobar como cambia con diferentes portadas 25% es prueba por ahora */
-        width: 25%;
+        object-fit: cover;
         margin-right: 20px;
-    }
-    .platform {
-        height: 30px;
     }
     .info-game {
         display: grid;
@@ -180,8 +221,199 @@ span {
 .review-body {
     display: grid;
     gap: 20px;
-    border: 4px solid aquamarine;
+    background-color: rgba(0, 0, 0, .4);
+    border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    p {
+        font-size: 18px;
+        img {
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 12px;
+            border: 1px solid white;
+        }
+    }
 }
+
+/* Summary style*/
+.summary-header {
+    display: inline-flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+.summary-body {
+    display: grid;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, .4);
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
+    p {
+        font-size: 18px;
+        img {
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 12px;
+            border: 1px solid white;
+        }
+    }
+}
+
+/* Mobile style */
+@media (max-width: 600px) {
+    /* Header style */
+    .head {
+        .head-background{
+            min-height: 120px;
+            stroke: #646464;
+            stroke-width: 1px;
+            stroke-dasharray: 2,2;
+            stroke-linejoin: round;
+        }
+        .head-logo {
+            max-width: 115px;
+            border: 1px solid white;
+        } 
+    }
+    /* Navbar style */
+    .navbar {
+        .list-years {
+            gap: 10px;
+            margin-top: 20px;
+            li {
+                font-size: 18px;
+            }
+        }
+    }
+    /* Home page style */
+    .list-games {
+        display: block;
+        padding: 30px;
+    }
+
+    /* Card style */
+    .card {
+        margin-bottom: 20px;
+    }
+
+    /* Review style*/
+    .container {
+        padding: 30px 15px;
+    }
+    .review-header {
+        width: auto;
+        height: auto;
+        padding: 15px;
+        h1 {
+            font-size: 15px;
+        }
+        span {
+            font-size: 10px;
+        }
+        .cover {
+            width: clamp(120px, 25vw, 200px);
+            height: clamp(150px, 33vw, 260px);
+            object-fit: contain;
+            margin-right: 15px;
+        }
+        .info-game {
+            gap: 10px;
+            .platform {
+                height: 25px;
+            }
+            .releaseDate {
+                .date {
+                    margin-left: 5px;
+                }
+            }        
+            .finishedAt {
+                .date {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .review-body {
+        p {
+            font-size: 16px;
+            img {
+                max-width: 300px;
+                border-radius: 12px;
+                border: 1px solid white;
+            }
+        }
+    }
+    /* Summary style */
+    .summary-header {
+        h1 {
+            font-size: 25px;
+        }
+    }
+    .summary-body {
+        p {
+            font-size: 16px;
+            img {
+                max-width: 300px;
+                border-radius: 12px;
+                border: 1px solid white;
+            }
+        }
+    }
+}
+/* Web style */
+@media (min-width: 601px) {
+    /* Header style */
+    .head {
+        .head-logo {
+            max-width: 285px;
+            border: 2px solid white;
+        }
+    }
+    /* Navbar style */
+    .navbar {
+        .list-years {
+            gap: 40px;
+            margin-top: 50px;
+            li {
+                font-size: 30px;
+                /* Only hover behaviour in web */
+                &:hover {
+                    cursor: pointer;
+                    color: black;
+                    &::before {
+                        background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+                            box-shadow: 0px 3px 20px 0px black;
+                            transform: scale(1.5);
+                    }
+                }
+            }
+        }
+    }
+    /* Home page style */
+    .list-games {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 30px;
+    }
+    /* Review style */
+    .review-body {
+        p {
+            img {
+                min-width: 300px;
+                max-width: 500px;
+            }
+        }
+    }
+}
+
