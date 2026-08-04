@@ -10,8 +10,8 @@ Me ha gustado, pero es peor que sus predecesores, en especial donde destaca la s
 
 ![](/images/reviews/2024/life-strange-true-colors/gif-1.gif)
 
-El sistema de combate es fluido, aunque le he cogido el gusto algo tarde.
+El toque diferente del capítulo 3 mola!
 
 ![](/images/reviews/2024/life-strange-true-colors/gif-2.gif)
 
-La BSO y el aura que desprende es colosal, lo mejor para mí.
+Pésimo rendimiento en Switch 🥲
