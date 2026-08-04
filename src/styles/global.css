@@ -94,7 +94,12 @@ span {
             position: relative;
             cursor: pointer;
             white-space: nowrap;
-            font-family: var(--font-honk);
+            font-family: var(--font-titan);
+            background: linear-gradient(180deg, #e3ff30 25.000%, #ff847e 60.000%, #ff16ff 90.000%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px #250047;
+            letter-spacing: -2px;
             &::before {
                 content: " ";
                 position: absolute;

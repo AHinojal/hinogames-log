@@ -28,8 +28,13 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Honk",
-      cssVariable: "--font-honk"
+      name: "Titan One",
+      cssVariable: "--font-titan"
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Galindo",
+      cssVariable: "--font-galindo"
     }
   ]
 });
