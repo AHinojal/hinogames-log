@@ -1,0 +1,19 @@
+---
+import { Font } from 'astro:assets';
+
+const base = import.meta.env.BASE_URL;
+
+interface Props {
+    title?: string;
+}
+
+const { title = "HinoGames" } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<Font cssVariable="--font-pixel"/>
+<Font cssVariable="--font-poppins"/>
+<Font cssVariable="--font-honk"/>
+<link rel="icon" href={`${base}hg_favicon.ico`} />
+<meta name="viewport" content="width=device-width" />
+<title>{title}</title>

@@ -1,9 +1,13 @@
 ---
 import '../styles/global.css'
 
-import { Font } from 'astro:assets';
+import { Image } from 'astro:assets';
 
+import Head from '../components/head.astro'
 import Subheader from '../components/subheader.astro';
+
+const BASE_URL = import.meta.env.BASE_URL;
+const star = `${BASE_URL}/summary.svg`;
 
 interface Props {
   data: {
@@ -12,24 +16,28 @@ interface Props {
 }
 
 const { title } = Astro.props.data;
-const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-    <Font cssVariable="--font-pixel"/>
-    <!-- <Font cssVariable="--font-poppins"/> -->
-		<link rel="icon" href={`${base}hg_favicon.ico`} />
-		<meta name="viewport" content="width=device-width" />
-		<title>{title} - HinoGames</title>
-	</head>
+  <head>
+    <Head title={`${title} — HinoGames`}></Head>
+  </head>
 	<body>
     <Subheader></Subheader>
     <div class="container">
       <header class="summary-header">
-        <div class="info-game">
-          <h1>=== {title} ===</h1>
+        <div class="title">
+          <div class="stars">
+            <span class="star" style={`--icon: url(${star})`}></span>
+            <span class="star" style={`--icon: url(${star})`}></span>
+            <span class="star" style={`--icon: url(${star})`}></span>
+          </div>
+          <h1>{title}</h1>
+          <div class="stars">
+            <span class="star" style={`--icon: url(${star})`}></span>
+            <span class="star" style={`--icon: url(${star})`}></span>
+            <span class="star" style={`--icon: url(${star})`}></span>
+          </div>
         </div>
       </header>
 

@@ -1,14 +1,12 @@
 ---
 import '../styles/global.css'
 
-import { Font } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 import Card from '../components/card.astro';
+import Head from '../components/head.astro';
 import Header from '../components/header.astro';
 import Navbar from '../components/navbar.astro';
-
-const base = import.meta.env.BASE_URL;
 
 const reviews = await getCollection('reviews', (review) => !review.data.isDraft);
 const listYears: Set<number> = new Set();
@@ -18,11 +16,7 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 
 <html lang="es">
 	<head>
-		<meta charset="utf-8" />
-		<Font cssVariable="--font-pixel"/>
-		<link rel="icon" href={`${base}hg_favicon.ico`} />
-		<meta name="viewport" content="width=device-width" />
-		<title>HinoGames</title>
+		<Head/>
 	</head>
 	<body>
 		<Header></Header>

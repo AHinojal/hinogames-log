@@ -25,6 +25,11 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Poppins",
       cssVariable: "--font-poppins"
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Honk",
+      cssVariable: "--font-honk"
     }
   ]
 });
