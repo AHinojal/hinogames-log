@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css'
 
-import { Font } from 'astro:assets';
+import Head from '../components/head.astro'
 
 import Subheader from '../components/subheader.astro';
 
@@ -23,13 +23,9 @@ const platformLogoPath: string = `${base}/images/platforms/${platform}.svg`;
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-    <Font cssVariable="--font-pixel"/>
-		<link rel="icon" href={`${base}hg_favicon.ico`} />
-		<meta name="viewport" content="width=device-width" />
-		<title>{title} - HinoGames</title>
-	</head>
+  <head>
+    <Head title={`${title} — HinoGames`}></Head>
+  </head>
 	<body>
     <Subheader></Subheader>
     <div class="container">
@@ -43,7 +39,7 @@ const platformLogoPath: string = `${base}/images/platforms/${platform}.svg`;
             <h4 class="date">{releaseDate}</h4>
           </div>          
           <div class="finishedAt">
-            <span>Fecha de finalización:</span>
+            <span>Terminado:</span>
             <h4 class="date">{finishedAt.toLocaleDateString('es-ES')}</h4>
           </div>
         </div>

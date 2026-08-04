@@ -29,7 +29,7 @@ h4 {
 }
 span {
     color: white;
-    font-family: var(--font-pixel);
+    font-family: var(--font-poppins);
     margin: 0;
     font-size: 16px;
 }
@@ -94,6 +94,7 @@ span {
             position: relative;
             cursor: pointer;
             white-space: nowrap;
+            font-family: var(--font-honk);
             &::before {
                 content: " ";
                 position: absolute;
@@ -202,14 +203,15 @@ span {
             mask-repeat: no-repeat;
         }
         .releaseDate {
-            display: inline-flex;
+            display: ruby;
             align-items: center;
             .date {
                 margin-left: 10px;
             }
         }        
         .finishedAt {
-            display: inline-flex;
+            display: ruby;
+            display: ruby;
             align-items: center;
             .date {
                 margin-left: 10px;
@@ -226,8 +228,11 @@ span {
     padding: 20px;
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     p {
+        display: grid;
         font-size: 18px;
+        font-family: var(--font-poppins);
         img {
+            justify-self: center;
             min-width: 300px;
             max-width: 500px;
             border-radius: 12px;
@@ -247,6 +252,23 @@ span {
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
+    .title {
+        display: inline-flex;
+        align-items: center;
+        .stars{
+            .star {
+                display: inline-flex;
+                margin: 0 2px;
+                background-color: var(--platform-color, white);
+                -webkit-mask-image: var(--icon);
+                mask-image: var(--icon);
+                -webkit-mask-size: contain;
+                mask-size: contain;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+            }
+        }
+    }
 }
 .summary-body {
     display: grid;
@@ -258,9 +280,10 @@ span {
     box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     p {
         font-size: 18px;
+        font-family: var(--font-poppins);
         img {
-            min-width: 300px;
-            max-width: 500px;
+            min-width: 200px;
+            max-width: 300px;
             border-radius: 12px;
             border: 1px solid white;
         }
@@ -289,19 +312,30 @@ span {
             gap: 10px;
             margin-top: 20px;
             li {
-                font-size: 18px;
+                font-size: 20px;
             }
         }
     }
     /* Home page style */
     .list-games {
         display: block;
-        padding: 30px;
+        padding: 15px;
     }
 
     /* Card style */
     .card {
         margin-bottom: 20px;
+        max-width: 360px;
+        .info {
+            h1 {
+                font-size: 16px;
+            }        
+            h4 {
+                font-size: 14px;
+            }
+
+        }
+
     }
 
     /* Review style*/
@@ -327,7 +361,7 @@ span {
         .info-game {
             gap: 10px;
             .platform {
-                height: 25px;
+                height: 20px;
             }
             .releaseDate {
                 .date {
@@ -343,7 +377,7 @@ span {
     }
     .review-body {
         p {
-            font-size: 16px;
+            font-size: 14px;
             img {
                 max-width: 300px;
                 border-radius: 12px;
@@ -354,12 +388,20 @@ span {
     /* Summary style */
     .summary-header {
         h1 {
-            font-size: 25px;
+            font-size: 23px;
+            margin: 0 10px;
+        }
+        .stars{
+            .star {
+                width: 20px;
+                height: 20px;
+                margin: 0 2px;
+            }
         }
     }
     .summary-body {
         p {
-            font-size: 16px;
+            font-size: 14px;
             img {
                 max-width: 300px;
                 border-radius: 12px;
@@ -383,7 +425,7 @@ span {
             gap: 40px;
             margin-top: 50px;
             li {
-                font-size: 30px;
+                font-size: 32px;
                 /* Only hover behaviour in web */
                 &:hover {
                     cursor: pointer;
@@ -411,6 +453,19 @@ span {
             img {
                 min-width: 300px;
                 max-width: 500px;
+            }
+        }
+    }
+    /* Summary style */
+    .summary-header {
+        h1 {
+            margin: 0 20px;
+        }
+        .stars{
+            .star {
+                width: 30px;
+                height: 30px;
+                margin: 0 2px;
             }
         }
     }
