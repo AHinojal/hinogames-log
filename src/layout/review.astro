@@ -11,11 +11,12 @@ interface Props {
     cover: string;
     platform: string;
     releaseDate: string;
+    developer: string;
     finishedAt: Date;
   };
 }
 
-const { title, cover, platform, releaseDate, finishedAt } = Astro.props.data;
+const { title, cover, platform, releaseDate, developer, finishedAt } = Astro.props.data;
 const base = import.meta.env.BASE_URL;
 
 const coverPath: string = `${base}${cover.replace(/^\//, '')}`;
@@ -37,6 +38,10 @@ const platformLogoPath: string = `${base}/images/platforms/${platform}.svg`;
           <ruby class="releaseDate">
             <span>Fecha de lanzamiento:</span>
             <h4 class="date">{releaseDate}</h4>
+          </ruby>                 
+          <ruby class="developer">
+            <span>Desarolladora:</span>
+            <h4 class="date">{developer}</h4>
           </ruby>          
           <ruby class="finishedAt">
             <span>Terminado:</span>

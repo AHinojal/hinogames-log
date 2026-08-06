@@ -1,7 +1,8 @@
 ---
-title: "Horizon Zero Dawn: Remastered"
+title: "Horizon Zero Dawn Remastered"
 platform: "PS5"
 releaseDate: "2024"
+developer: "Guerrilla Games"
 finishedAt: 2025-06-10
 cover: "/images/reviews/2025/horizon-zero-dawn/cover.jpg"
 ---

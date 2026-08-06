@@ -2,6 +2,7 @@
 title: "Astro's Playroom"
 platform: "PS5"
 releaseDate: "2020"
+developer: "Team Asobi"
 finishedAt: 2025-12-29
 cover: "/images/reviews/2025/astros-playroom/cover.jpg"
 ---

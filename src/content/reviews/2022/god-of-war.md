@@ -2,6 +2,7 @@
 title: "God of War"
 platform: "PS4"
 releaseDate: "2018"
+developer: "Santa Monica Studio"
 finishedAt: 2022-03-22
 cover: "/images/reviews/2022/god-of-war/cover.jpg"
 ---

@@ -2,6 +2,7 @@
 title: "Harry Potter y la Piedra Filosofal"
 platform: "GBC"
 releaseDate: "1999"
+developer: "Griptonite"
 finishedAt: 2026-05-07
 cover: "/images/reviews/2026/harry-potter-philosopher-stone/cover.jpg"
 ---

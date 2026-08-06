@@ -2,6 +2,7 @@
 title: "Pokémon Trading Card Game"
 platform: "GBC"
 releaseDate: "1998"
+developer: "Hudson Soft"
 finishedAt: 2023-09-20
 cover: "/images/reviews/2023/pokemon-tcg/cover.jpg"
 ---

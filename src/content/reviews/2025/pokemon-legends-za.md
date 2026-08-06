@@ -2,6 +2,7 @@
 title: "Pokémon Leyendas ZA"
 platform: "NS1"
 releaseDate: "2025"
+developer: "Game Freak"
 finishedAt: 2025-12-16
 cover: "/images/reviews/2025/pokemon-legends-za/cover.jpg"
 ---

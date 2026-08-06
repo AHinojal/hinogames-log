@@ -2,6 +2,7 @@
 title: "Star Wars: Jedi Survivor"
 platform: "PS5"
 releaseDate: "2023"
+developer: "Respawn"
 finishedAt: 2025-08-04
 cover: "/images/reviews/2025/star-wars-jedi-survivor/cover.jpg"
 ---

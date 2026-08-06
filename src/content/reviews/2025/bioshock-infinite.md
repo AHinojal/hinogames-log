@@ -2,6 +2,7 @@
 title: "Bioshock Infinite"
 platform: "NS1"
 releaseDate: "2020"
+developer: "Irrational Games"
 finishedAt: 2025-03-05
 cover: "/images/reviews/2025/bioshock-infinite/cover.jpg"
 ---

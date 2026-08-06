@@ -2,6 +2,7 @@
 title: "Bioshock Remastered"
 platform: "NS1"
 releaseDate: "2020"
+developer: "Irrational Games"
 finishedAt: 2024-10-08
 cover: "/images/reviews/2024/bioshock/cover.jpg"
 ---

@@ -2,6 +2,7 @@
 title: "Pokémon Leyendas Arceus"
 platform: "NS1"
 releaseDate: "2022"
+developer: "Game Freak"
 finishedAt: 2023-01-08
 cover: "/images/reviews/2023/pokemon-legends-arceus/cover.png"
 ---

@@ -2,6 +2,7 @@
 title: "Marvel's Spider-Man 2"
 platform: "PS5"
 releaseDate: "2023"
+developer: "Insomniac Games"
 finishedAt: 2024-07-07
 cover: "/images/reviews/2024/spiderman-2/cover.jpg"
 ---

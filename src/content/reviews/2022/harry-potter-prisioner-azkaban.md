@@ -2,6 +2,7 @@
 title: "Harry Potter y el Prisionero de Azkaban"
 platform: "NGC"
 releaseDate: "2004"
+developer: "Electronic Arts UK"
 finishedAt: 2022-11-22
 cover: "/images/reviews/2022/harry-potter-prisioner-azkaban/cover.jpg"
 ---
