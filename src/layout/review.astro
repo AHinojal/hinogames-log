@@ -34,14 +34,14 @@ const platformLogoPath: string = `${base}/images/platforms/${platform}.svg`;
         <div class="info-game">
           <h1>{title}</h1>
           <span class="platform" style={`--icon: url(${platformLogoPath})`}></span>
-          <div class="releaseDate">
+          <ruby class="releaseDate">
             <span>Fecha de lanzamiento:</span>
             <h4 class="date">{releaseDate}</h4>
-          </div>          
-          <div class="finishedAt">
+          </ruby>          
+          <ruby class="finishedAt">
             <span>Terminado:</span>
             <h4 class="date">{finishedAt.toLocaleDateString('es-ES')}</h4>
-          </div>
+          </ruby>
         </div>
       </header>
 
