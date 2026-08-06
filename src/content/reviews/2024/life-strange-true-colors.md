@@ -2,6 +2,7 @@
 title: "Life is Strange: True Colors"
 platform: "NS1"
 releaseDate: "2021"
+developer: "Deck Nine"
 finishedAt: 2024-05-15
 cover: "/images/reviews/2024/life-strange-true-colors/cover.jpg"
 ---

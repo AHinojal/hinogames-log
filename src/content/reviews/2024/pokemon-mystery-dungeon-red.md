@@ -2,6 +2,7 @@
 title: "Pokémon Mundo Misterioso: Equipo de Rescate Rojo"
 platform: "GBA"
 releaseDate: "2005"
+developer: "Chunsoft"
 finishedAt: 2024-08-23
 cover: "/images/reviews/2024/pokemon-mystery-dungeon-red/cover.jpg"
 ---

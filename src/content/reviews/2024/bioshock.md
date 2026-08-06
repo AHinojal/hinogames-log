@@ -2,11 +2,12 @@
 title: "Bioshock Remastered"
 platform: "NS1"
 releaseDate: "2020"
+developer: "Irrational Games"
 finishedAt: 2024-10-08
 cover: "/images/reviews/2024/bioshock/cover.jpg"
 ---
 
-Entre la estética que tiene Rapture, ser un FPS, la historia y una BSO con música de los años 20-30, te da pra estar con tensión durante todo el juego ​😰​ o por lo menos a mí, que soy un cagao 😅​
+Entre la estética que tiene Rapture, ser un FPS, la historia y una BSO con música de los años 20-30, te da para estar con tensión durante todo el juego ​😰​ o por lo menos a mí, que soy un cagao 😅​
 
 ![](/images/reviews/2024/bioshock/gif-1.gif)
 

@@ -2,6 +2,7 @@
 title: "Pokémon Snap"
 platform: "N64"
 releaseDate: "1999"
+developer: "HAL Laboratory"
 finishedAt: 2023-04-24
 cover: "/images/reviews/2023/pokemon-snap/cover.jpg"
 ---

@@ -94,7 +94,12 @@ span {
             position: relative;
             cursor: pointer;
             white-space: nowrap;
-            font-family: var(--font-honk);
+            font-family: var(--font-titan);
+            background: linear-gradient(180deg, #e3ff30 25.000%, #ff847e 60.000%, #ff16ff 90.000%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px #250047;
+            letter-spacing: -2px;
             &::before {
                 content: " ";
                 position: absolute;
@@ -127,7 +132,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 10px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     .cover {
         margin-right: 10px;
@@ -179,7 +183,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
     .cover {
@@ -202,15 +205,7 @@ span {
             -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
         }
-        .releaseDate {
-            display: ruby;
-            align-items: center;
-            .date {
-                margin-left: 10px;
-            }
-        }        
-        .finishedAt {
-            display: ruby;
+        .releaseDate, .developer, .finishedAt {
             display: ruby;
             align-items: center;
             .date {
@@ -226,7 +221,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     p {
         display: grid;
         font-size: 18px;
@@ -249,7 +243,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
     .title {
@@ -277,7 +270,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     p {
         font-size: 18px;
         font-family: var(--font-poppins);
@@ -353,6 +345,7 @@ span {
             font-size: 10px;
         }
         .cover {
+            align-self: center;
             width: clamp(120px, 25vw, 200px);
             height: clamp(150px, 33vw, 260px);
             object-fit: contain;
@@ -363,12 +356,10 @@ span {
             .platform {
                 height: 20px;
             }
-            .releaseDate {
-                .date {
-                    margin-left: 5px;
+            .releaseDate, .developer, .finishedAt {
+                h4 {
+                    font-size: 12px;
                 }
-            }        
-            .finishedAt {
                 .date {
                     margin-left: 5px;
                 }

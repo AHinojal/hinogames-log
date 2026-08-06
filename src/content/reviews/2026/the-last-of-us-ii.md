@@ -2,6 +2,7 @@
 title: "The Last of Us Parte 2 Remastered"
 platform: "PS5"
 releaseDate: "2024"
+developer: "Naughty Dog"
 finishedAt: 2026-05-06
 cover: "/images/reviews/2026/the-last-of-us-ii/cover.jpg"
 ---

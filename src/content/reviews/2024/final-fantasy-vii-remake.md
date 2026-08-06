@@ -2,6 +2,7 @@
 title: "Final Fantasy VII Remake"
 platform: "PS5"
 releaseDate: "2020"
+developer: "Square Enix"
 finishedAt: 2024-03-24
 cover: "/images/reviews/2024/final-fantasy-vii-remake/cover.jpg"
 ---

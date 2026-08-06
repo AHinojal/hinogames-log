@@ -2,6 +2,7 @@
 title: "The Last of Us Remastered"
 platform: "PS4"
 releaseDate: "2014"
+developer: "Naughty Dog"
 finishedAt: 2022-09-28
 cover: "/images/reviews/2022/the-last-of-us/cover.jpg"
 ---

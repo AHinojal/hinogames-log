@@ -2,6 +2,7 @@
 title: "Hogwarts Legacy"
 platform: "PS5"
 releaseDate: "2023"
+developer: "Avalanche Software"
 finishedAt: 2025-05-30
 cover: "/images/reviews/2025/hogwarts-legacy/cover.jpg"
 ---
