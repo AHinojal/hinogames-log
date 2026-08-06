@@ -2,6 +2,7 @@
 title: "The Legend of Zelda: The Minish Cap"
 platform: "GBA"
 releaseDate: "2005"
+developer: "Capcom & Flagship"
 finishedAt: 2024-08-02
 cover: "/images/reviews/2024/legend-zelda-minish-cap/cover.jpg"
 ---

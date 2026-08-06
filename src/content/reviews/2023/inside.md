@@ -2,6 +2,7 @@
 title: "Inside"
 platform: "NS1"
 releaseDate: "2018"
+developer: "Playdead"
 finishedAt: 2023-10-31
 cover: "/images/reviews/2023/inside/cover.jpg"
 ---

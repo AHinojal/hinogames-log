@@ -2,6 +2,7 @@
 title: "Pokémon Let's Go Pikachu"
 platform: "NS1"
 releaseDate: "2018"
+developer: "Game Freak"
 finishedAt: 2023-07-20
 cover: "/images/reviews/2023/pokemon-letsgo-pikachu/cover.jpg"
 ---

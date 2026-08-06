@@ -2,6 +2,7 @@
 title: "Limbo"
 platform: "NS1"
 releaseDate: "2018"
+developer: "Playdead"
 finishedAt: 2023-06-07
 cover: "/images/reviews/2023/limbo/cover.jpg"
 ---

@@ -15,6 +15,7 @@ const reviews = defineCollection({
         title: z.string(),
         platform: z.string(),
         releaseDate: z.string(),
+        developer: z.string().default('TBD'),
         finishedAt: z.coerce.date(),
         isDraft: z.boolean().default(false),
     })

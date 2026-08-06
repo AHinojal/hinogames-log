@@ -2,6 +2,7 @@
 title: "Captain Tsubasa: Rise of New Champions"
 platform: "NS1"
 releaseDate: "2020"
+developer: "Tamsoft"
 finishedAt: 2025-05-07
 cover: "/images/reviews/2025/captain-tsubasa-ronc/cover.jpg"
 ---

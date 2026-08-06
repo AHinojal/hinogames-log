@@ -2,6 +2,7 @@
 title: "Marvel's Spider-Man: Miles Morales"
 platform: "PS5"
 releaseDate: "2020"
+developer: "Insomniac Games"
 finishedAt: 2024-05-23
 cover: "/images/reviews/2024/spiderman-miles-morales/cover.jpg"
 ---

@@ -2,6 +2,7 @@
 title: "Pokémon Pinball"
 platform: "GBC"
 releaseDate: "1999"
+developer: "Jupiter Corp."
 finishedAt: 2026-03-11
 cover: "/images/reviews/2026/pokemon-pinball/cover.jpg"
 ---
