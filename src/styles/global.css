@@ -132,7 +132,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 10px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     .cover {
         margin-right: 10px;
@@ -184,7 +183,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
     .cover {
@@ -223,7 +221,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     p {
         display: grid;
         font-size: 18px;
@@ -246,7 +243,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 20px;
     .title {
@@ -274,7 +270,6 @@ span {
     border: 1px solid white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.7);
     p {
         font-size: 18px;
         font-family: var(--font-poppins);
