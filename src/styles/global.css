@@ -170,9 +170,11 @@ span {
 
 @supports (background: -webkit-named-image(i)) {
 /* Esto solo se aplica en Safari (iOS y macOS) */
-    .cover {
-        margin: 0 !important;
-        object-fit: contain;
+    .card {
+        .cover {
+            margin: 0 !important;
+            object-fit: contain;
+        }
     }
 }
 /* Review style*/
@@ -326,9 +328,7 @@ span {
             h4 {
                 font-size: 14px;
             }
-
         }
-
     }
 
     /* Review style*/
