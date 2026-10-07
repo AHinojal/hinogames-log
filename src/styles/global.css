@@ -58,7 +58,9 @@ span {
         height: auto;
         box-shadow: 3px 5px 6px black
     } 
-}/* Subheader style */
+}
+
+/* Subheader style */
 .subhead {
     position: relative;
     width: 100%;
@@ -105,7 +107,7 @@ span {
                 position: absolute;
                 top: 0;
                 left:0;
-                height:100%;
+                height: 100%;
                 width: 100%;
                 z-index: -1;
                 transition: .2s;
@@ -129,12 +131,13 @@ span {
     max-width: 350px;
     height: 150px;
     background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 12px;
-    padding: 10px;
+    padding: 10px 10px 10px 0px;
     text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     .cover {
-        margin-right: 10px;
+        margin: 0 10px;
         border-radius: 6px;
     }
     .info {
@@ -159,19 +162,17 @@ span {
         }
     }
     &:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        border: 2px solid rgba(179, 62, 102, 1);
-        outline: 2px solid rgba(179, 62, 102, 1);
-        box-shadow: 10px 10px 10px 0px rgba(255, 255, 255, 0.7);
-        h1 {
-            color: black;
-        }
-        .platform {
-        background-color: var(--platform-color, black);
-        }
-        .date {
-            color: black;
-        }
+        transform: scale(1.05);
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@supports (background: -webkit-named-image(i)) {
+/* Esto solo se aplica en Safari (iOS y macOS) */
+    .cover {
+        margin: 0 !important;
+        object-fit: contain;
     }
 }
 /* Review style*/
@@ -186,7 +187,7 @@ span {
     text-decoration: none;
     margin-bottom: 20px;
     .cover {
-        object-fit: cover;
+        object-fit: contain;
         margin-right: 20px;
     }
     .info-game {
