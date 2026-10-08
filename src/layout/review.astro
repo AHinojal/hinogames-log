@@ -3,7 +3,7 @@ import '../styles/global.css'
 
 import Head from '../components/head.astro'
 
-import Subheader from '../components/subheader.astro';
+import Header from '../components/header.astro';
 
 interface Props {
   data: {
@@ -28,7 +28,7 @@ const platformLogoPath: string = `${base}/images/platforms/${platform}.svg`;
     <Head title={`${title} — HinoGames`}></Head>
   </head>
 	<body>
-    <Subheader></Subheader>
+    <Header></Header>
     <div class="container">
       <header class="review-header">
         <img src={coverPath} alt={`Portada de ${title}`} class="cover"/>

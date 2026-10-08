@@ -40,44 +40,35 @@ span {
 }
 /* Header style */
 .head {
-    position: relative;
+    display: block;
     width: 100%;
-    .head-background {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        filter: drop-shadow(5px 5px 3px rgba(255, 255, 255, 0.7));
-    }
-    .head-logo {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 285px;
-        height: auto;
-        box-shadow: 3px 5px 6px black
-    } 
-}/* Subheader style */
-.subhead {
-    position: relative;
-    width: 100%;
-    background-color: rgba(237,51,59);
-    min-height: 100px;
-    box-shadow: 0px 5px 3px rgba(255, 255, 255, 0.7);
-    a {
-        cursor: pointer;
-        .head-logo {
+    .head_wrapper {
+        position: relative;
+        padding-top: 30px;
+        .head_version {
             position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 160px;
+            top: 5px;
+            right: 0%;
+            margin-right: 10px;
+            color: rgba(237, 51, 59, 0.5);
+        }
+        .head_bar {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            width: 100%;
+            background-color: rgba(237, 51, 59, 0.5);
+            a {
+                cursor: pointer;
+            }
+        }
+        .head_logo {
             height: auto;
-            box-shadow: 3px 5px 6px black
+            box-shadow: 3px 5px 6px black;
         } 
     }
 }
+
 /* Navbar style */
 .navbar {
     display: flex;
@@ -105,7 +96,7 @@ span {
                 position: absolute;
                 top: 0;
                 left:0;
-                height:100%;
+                height: 100%;
                 width: 100%;
                 z-index: -1;
                 transition: .2s;
@@ -129,12 +120,13 @@ span {
     max-width: 350px;
     height: 150px;
     background-color: rgba(0, 0, 0, 0.4);
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 12px;
-    padding: 10px;
+    padding: 10px 10px 10px 0px;
     text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     .cover {
-        margin-right: 10px;
+        margin: 0 10px;
         border-radius: 6px;
     }
     .info {
@@ -158,19 +150,14 @@ span {
             mask-repeat: no-repeat;
         }
     }
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        border: 2px solid rgba(179, 62, 102, 1);
-        outline: 2px solid rgba(179, 62, 102, 1);
-        box-shadow: 10px 10px 10px 0px rgba(255, 255, 255, 0.7);
-        h1 {
-            color: black;
-        }
-        .platform {
-        background-color: var(--platform-color, black);
-        }
-        .date {
-            color: black;
+}
+
+/* Esto solo se aplica en Safari (iOS y macOS) */
+@supports (background: -webkit-named-image(i)) {
+    .card {
+        .cover {
+            margin: 0 !important;
+            object-fit: contain;
         }
     }
 }
@@ -186,7 +173,7 @@ span {
     text-decoration: none;
     margin-bottom: 20px;
     .cover {
-        object-fit: cover;
+        object-fit: contain;
         margin-right: 20px;
     }
     .info-game {
@@ -286,15 +273,19 @@ span {
 @media (max-width: 600px) {
     /* Header style */
     .head {
-        .head-background{
-            min-height: 120px;
-            stroke: #646464;
-            stroke-width: 1px;
-            stroke-dasharray: 2,2;
-            stroke-linejoin: round;
+        .head_wrapper {
+            padding-top: 15px;
+            .head_version {
+                top: 1px;
+                font-size: 10px;
+                margin-right: 2px;
+            }
         }
-        .head-logo {
-            max-width: 115px;
+        .head_bar {
+            padding: 10px 0;
+        }
+        .head_logo {
+            max-width: 160px;
             border: 1px solid white;
         } 
     }
@@ -302,7 +293,7 @@ span {
     .navbar {
         .list-years {
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 15px;
             li {
                 font-size: 20px;
             }
@@ -325,14 +316,16 @@ span {
             h4 {
                 font-size: 14px;
             }
-
         }
-
+        &:active {
+            transform: scale(1.05);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
     }
 
     /* Review style*/
     .container {
-        padding: 30px 15px;
+        padding: 15px;
     }
     .review-header {
         width: auto;
@@ -401,11 +394,21 @@ span {
         }
     }
 }
+
+/* Only hover behaviour in web or devices with mouse */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: scale(1.12);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.5);
+  }
+}
+
 /* Web style */
 @media (min-width: 601px) {
     /* Header style */
     .head {
-        .head-logo {
+        .head_logo {
             max-width: 285px;
             border: 2px solid white;
         }
@@ -414,7 +417,7 @@ span {
     .navbar {
         .list-years {
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 30px;
             li {
                 font-size: 32px;
                 /* Only hover behaviour in web */
