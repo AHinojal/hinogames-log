@@ -13,7 +13,7 @@ concurrency:
 
 # Permissions
 permissions:
-    contents: write
+    contents: read
     pages: write
     id-token: write
 
@@ -26,31 +26,13 @@ jobs:
         steps:
             # Download repo
             - uses: actions/checkout@v5
+              with:
+                fetch-depth: 0   # We need the tags for the version
             # Install node
             - uses: actions/setup-node@v5
               with:
                 node-version: 22
                 cache: npm
-            # To determinate the version's type in commit    
-            - id: bump
-              run: |
-                MESSAGE="${{ github.event.head_commit.message }}"
-                if echo "$MESSAGE" | grep -q "#major"; then
-                  echo "type=major" >> "$GITHUB_OUTPUT"
-                elif echo "$MESSAGE" | grep -q "#minor"; then
-                  echo "type=minor" >> "$GITHUB_OUTPUT"
-                else
-                  echo "type=patch" >> "$GITHUB_OUTPUT"
-                fi
-            # Update version in package.json
-            - run: npm version ${{ steps.bump.outputs.type }} --no-git-tag-version
-            # Commit of package.json with the new version
-            - run: |
-                git config user.name "github-actions[bot]"
-                git config user.email "github-actions[bot]@users.noreply.github.com"
-                git add package.json package-lock.json
-                git commit -m "chore: bump version [skip ci]"
-                git push
             # Install dependencies
             - run: npm ci
             # Generates build
