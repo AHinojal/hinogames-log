@@ -33,15 +33,10 @@ jobs:
               with:
                 node-version: 22
                 cache: npm
-            # Read the actual version
-            - id: version
-              run: echo "value=$(git tag --list 'v*' --sort=-v:refname | head -n 1)" >> "$GITHUB_OUTPUT"
             # Install dependencies
             - run: npm ci
-            # Generates build and create version's variable
+            # Generates build
             - run: npm run build
-              env:
-                PUBLIC_APP_VERSION: ${{ steps.version.outputs.value }}
             # Upload web to generate artifact
             - uses: actions/upload-pages-artifact@v5
               with:

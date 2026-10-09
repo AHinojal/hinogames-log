@@ -25,14 +25,17 @@ jobs:
         - uses: actions/checkout@v5
           # Get the complete historial and tags
           with:
-            fetch-depth: 0 
+            fetch-depth: 0
+        # Install node
+        - uses: actions/setup-node@v5
+          with:
+            node-version: 22
         # Gets and calculate the new tag
         - env:
             MESSAGE: ${{ github.event.head_commit.message }}
             # 1. Gets the version's type from the commit 
-            # 2. If we not have tag, gets the version from package.json
-            # 3. Calculate the next version
-            # 4. Create and load the new tag
+            # 2. npm calculates new version from package.json
+            # 3. Do the new commit with the new version
           run: |
             if echo "$MESSAGE" | grep -q "#major"; then
                 TYPE=major
@@ -42,20 +45,12 @@ jobs:
                 TYPE=patch
             fi
 
-            LAST=$(git tag --list 'v*' --sort=-v:refname | head -n 1)
-            if [ -z "$LAST" ]; then
-                LAST="v$(node -p "require('./package.json').version")"
-            fi
+            NEW=$(npm version "$TYPE" --no-git-tag-version)
 
-            IFS=. read -r MAJOR MINOR PATCH <<< "${LAST#v}"
-            case "$TYPE" in
-                major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
-                minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
-                *)     PATCH=$((PATCH + 1)) ;;
-            esac
-            NEW="v${MAJOR}.${MINOR}.${PATCH}"
-
-            
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add package.json package-lock.json
+            git commit -m "chore: bump version to $NEW [skip ci]"
             git tag "$NEW"
-            git push origin "$NEW"
+            git push origin develop "$NEW"
             echo "New version: $NEW ($TYPE)" >> "$GITHUB_STEP_SUMMARY"
