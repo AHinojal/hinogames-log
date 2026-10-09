@@ -153,14 +153,14 @@ span {
 }
 
 /* Esto solo se aplica en Safari (iOS y macOS) */
-@supports (background: -webkit-named-image(i)) {
+/* @supports (background: -webkit-named-image(i)) {
     .card {
         .cover {
             margin: 0 !important;
             object-fit: contain;
         }
     }
-}
+} */
 /* Review style*/
 .review-header {
     display: flex;
