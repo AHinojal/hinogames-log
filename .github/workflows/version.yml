@@ -1,0 +1,61 @@
+# Process name
+name: Upgrade version web
+
+# Branch being executed
+on:
+    push:
+        branches:
+            - develop
+
+concurrency:
+     group: versioning
+     cancel-in-progress: true
+
+# Permissions
+permissions:
+    contents: read
+
+# Tasks
+jobs:
+    # Job's name: Build
+    build:
+        # Virtual machine
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v5
+          # Get the complete historial and tags
+          with:
+            fetch-depth: 0 
+        # Gets and calculate the new tag
+        - env:
+            MESSAGE: ${{ github.event.head_commit.message }}
+            # 1. Gets the version's type from the commit 
+            # 2. If we not have tag, gets the version from package.json
+            # 3. Calculate the next version
+            # 4. Create and load the new tag
+          run: |
+            if echo "$MESSAGE" | grep -q "#major"; then
+                TYPE=major
+            elif echo "$MESSAGE" | grep -q "#minor"; then
+                TYPE=minor
+            else
+                TYPE=patch
+            fi
+
+            LAST=$(git tag --list 'v*' --sort=-v:refname | head -n 1)
+            if [ -z "$LAST" ]; then
+                LAST="v$(node -p "require('./package.json').version")"
+            fi
+
+            IFS=. read -r MAJOR MINOR PATCH <<< "${LAST#v}"
+            case "$TYPE" in
+                major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
+                minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
+                *)     PATCH=$((PATCH + 1)) ;;
+            esac
+            NEW="v${MAJOR}.${MINOR}.${PATCH}"
+
+            
+            git tag "$NEW"
+            git push origin "$NEW"
+            echo "New version: $NEW ($TYPE)" >> "$GITHUB_STEP_SUMMARY"
