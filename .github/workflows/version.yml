@@ -8,12 +8,13 @@ on:
             - develop
 
 concurrency:
-     group: versioning
-     cancel-in-progress: true
+    group: versioning
+    cancel-in-progress: true
 
 # Permissions
 permissions:
-    contents: read
+    contents: write
+    id-token: write
 
 # Tasks
 jobs:
