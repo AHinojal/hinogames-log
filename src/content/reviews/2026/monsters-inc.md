@@ -3,7 +3,7 @@ title: "Monstruos, S.A."
 platform: "GBC"
 releaseDate: "2001"
 developer: "Vicarious Visions"
-finishedAt: 2026-10-3
+finishedAt: 2026-11-3
 cover: "/images/reviews/2026/monsters-inc/cover.jpg"
 ---
 
