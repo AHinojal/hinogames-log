@@ -44,6 +44,11 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 <script>
 	const sections = document.querySelectorAll<HTMLElement>('[data-section]');
 
+	// Ocultamos por defecto los resumenes cuando carga la pagina
+	sections.forEach((el) => {
+		el.hidden = el.dataset.section !== 'reviews';
+	});
+
 	// Comprobamos el evento lanzado desde el navbar, para ver si lo que se ve son las reviews o los resumenes
 	document.addEventListener('section-change', (event) => {
 		const { section } = (event as CustomEvent<{ section: string }>).detail;
