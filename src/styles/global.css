@@ -158,6 +158,24 @@ span {
         }
     }
 }
+.summary-card {
+    display: flex;
+    max-width: 350px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    .info {
+        justify-items: center;
+        width: 200px;
+        h1 {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+    }
+}
 
 /* Esto solo se aplica en Safari (iOS y macOS) */
 /* @supports (background: -webkit-named-image(i)) {
@@ -236,12 +254,15 @@ span {
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid white;
     border-radius: 12px;
-    padding: 20px;
+    padding: 20px 20px 18px 20px;
     text-decoration: none;
     margin-bottom: 20px;
     .title {
         display: inline-flex;
         align-items: center;
+        h1 {
+            padding-bottom: 5px;
+        }
         .stars{
             .star {
                 display: inline-flex;
@@ -328,6 +349,20 @@ span {
             transform: scale(1.05);
             background-color: rgba(0, 0, 0, 0.2);
         }
+    }    
+    .summary-card {
+        margin-bottom: 20px;
+        max-width: 360px;
+        justify-content: center;
+        .info {
+            h1 {
+                font-size: 20px;
+            }        
+        }
+        &:active {
+            transform: scale(1.05);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
     }
 
     /* Review style*/
@@ -379,7 +414,7 @@ span {
     /* Summary style */
     .summary-header {
         h1 {
-            font-size: 23px;
+            font-size: 22px;
             margin: 0 10px;
         }
         .stars{
@@ -405,6 +440,11 @@ span {
 /* Only hover behaviour in web or devices with mouse */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
+    transform: scale(1.12);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.5);
+  }  
+  .summary-card:hover {
     transform: scale(1.12);
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 5px 5px 5px 0px rgba(255, 255, 255, 0.5);
