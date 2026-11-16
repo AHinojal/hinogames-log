@@ -1,47 +1,32 @@
 # [HinoGames Log](https://ahinojal.github.io/hinogames-log/)
 
-------------------------------------
+## Versioning
 
-# Astro Starter Kit: Minimal
+The project version lives in `package.json` (single source of truth) and is bumped **automatically** every time something is pushed to `develop`. `master` never gets version commits: it only deploys.
 
-```sh
-npm create astro@latest -- --template minimal
-```
+### How it works
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. A push lands on `develop` (usually by merging a PR).
+2. The **Bump version** workflow (`.github/workflows/version.yml`) reads the message of the head commit of that push and looks for a keyword.
+3. It runs `npm version <type> --no-git-tag-version`, which updates `package.json` and `package-lock.json`.
+4. The bot commits the change to `develop` (`chore: bump version to vX.Y.Z [skip ci]`), creates the tag `vX.Y.Z` on that commit and pushes both.
+5. When `develop` is merged into `master` through a PR, the **Deploy Astro** workflow builds the site and publishes it to GitHub Pages. The site reads the version from `package.json`.
 
-## 🚀 Project Structure
+### Choosing the bump type
 
-Inside of your Astro project, you'll see the following folders and files:
+Add a keyword to the **PR title** when merging into `develop` (a merge commit includes the PR title, and so does a squash commit). If you merge locally, use `git merge -m "... #minor"`.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+| Keyword          | Bump  | Example         |
+| ---------------- | ----- | --------------- |
+| _(none)_         | patch | 0.3.1 → 0.3.2   |
+| `#minor`         | minor | 0.3.1 → 0.4.0   |
+| `#major`         | major | 0.3.1 → 1.0.0   |
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Release checklist
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. `git pull` on `develop`, then create the feature branch from it.
+2. Open a PR into `develop`. Put `#minor` or `#major` in the title if needed.
+3. Merge it and **wait for the Bump version action to finish** (about a minute).
+4. `git pull` on `develop` to get the bot's commit locally.
+5. When ready to release, open a PR `develop` → `master` and merge it. The deploy runs automatically.
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

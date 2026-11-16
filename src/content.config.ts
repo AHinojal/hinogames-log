@@ -28,7 +28,7 @@ const summaries = defineCollection({
     }),
     // Similar a una interface
     schema: z.object({
-        title: z.string(),
+        year: z.string()
     })
 });
 

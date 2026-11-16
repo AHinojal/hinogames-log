@@ -1,55 +1,67 @@
 ---
 import '../styles/global.css'
+import YearsNavbar from './years-navbar.astro';
 
 interface Props {
   listYears: Set<number>
 }
 
 const { listYears } = Astro.props;
-const LIST_YEARS = Array.from(listYears);
+const LIST_OPTIONS = [
+	{ key: 'reviews', label: 'HISTÓRICO' },
+	{ key: 'summaries', label: 'RESUMEN' },
+	//{ key: 'mentions', label: 'MENCIONES HINORÍFICAS' },
+];
 ---
 
-<ul class="list-years">
-	{LIST_YEARS.map((year) => (
-		<li data-year={year}>{year}</li>
-	))}
-</ul>
+<div class="option-navbar">
+	<ul class="list-options">
+		{LIST_OPTIONS.map((option) => (
+			<li data-option={option.key}>{option.label}</li>
+		))}
+	</ul>
+</div>
+<div class="years-navbar">
+	<YearsNavbar listYears={listYears}></YearsNavbar>
+</div>
 
 <script>
-	function updateVisibleCards(selectedYear: string) {
-		cards.forEach((card) => {
-			if (card.dataset.year === selectedYear) {
-				card.style.display = '';
-			} else{
-				card.style.display = 'none';
-			}
-		});
-	}	
-	function updateSelectedYearStyle(selectedYear: string) {
-		years.forEach((year) => {
-			if (year.dataset.year === selectedYear) {
-				year.classList.add('selected');
+	function updateSelectedOptionStyle(selectedOption: string) {
+		options.forEach((option) => {
+			if (option.dataset.option === selectedOption) {
+				option.classList.add('selected');
 			} else {
-				year.classList.remove('selected');
+				option.classList.remove('selected');
 			}
 		});
 	}
+	function updateVisibleYearsNavbar(yearsNavbar: any) {
+		if (selectedOption === 'reviews') {
+			yearsNavbar.style.display = '';
+		} else{
+			yearsNavbar.style.display = 'none';
+		}
+	}	
 	// Seleccionamos todos los span de los años
-	const years = document.querySelectorAll<HTMLElement>('.list-years li');
-	// Hacemos lo mismo con las tarjeta
-	const cards = document.querySelectorAll<HTMLElement>('.list-games .card');
-	// Mostramos como estado inicial solo las tarjetas de este año actual
-	let selectedYear: string = new Date().getFullYear().toString();
-	updateVisibleCards(selectedYear);
-	updateSelectedYearStyle(selectedYear);
-	// Por cada año, tenemos que escuchar el evento si el boton es pulsado
-	years.forEach((year) => {
-		year.addEventListener('click', () => {
+	const options = document.querySelectorAll<HTMLElement>('.list-options li');
+	const yearsNavbar = document.querySelector<HTMLElement>('.years-navbar');
+	console.log("🚀 ~ yearsNavbar:", yearsNavbar)
+	// Mostramos como estado inicial el historial
+	let selectedOption: string = 'reviews';
+	updateSelectedOptionStyle(selectedOption);
+	updateVisibleYearsNavbar(yearsNavbar);
+	// Por cada opcion, tenemos que escuchar el evento si el boton es pulsado
+	options.forEach((option) => {
+		option.addEventListener('click', () => {
 			// Guardamos el año seleccionado
-			selectedYear = year.dataset.year || new Date().getFullYear().toString();
+			selectedOption = option.dataset.option || 'reviews';
 			// Buscamos entre las cartas que tenemos y elegimos su visiblidad
-			updateVisibleCards(selectedYear);
-			updateSelectedYearStyle(selectedYear);
+			updateSelectedOptionStyle(selectedOption);
+			updateVisibleYearsNavbar(yearsNavbar);
+			// Evento para decir que se ha seleccionado otra opcion
+			document.dispatchEvent(
+				new CustomEvent('section-change', { detail: { section: selectedOption } })
+			);
 		});
 	});
 </script>
