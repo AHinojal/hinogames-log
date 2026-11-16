@@ -117,6 +117,10 @@ span {
     }
 } 
 
+[data-section][hidden] {
+    display: none;
+}
+
 /* Card style */
 .card {
     display: flex;
@@ -303,7 +307,7 @@ span {
         }
     }
     /* Home page style */
-    .list-games {
+    .list-games, .list-summaries {
         display: block;
         padding: 15px;
     }
@@ -437,7 +441,7 @@ span {
         }
     }
     /* Home page style */
-    .list-games {
+    .list-games, .list-summaries {
         display: grid;
         grid-template-columns: auto auto auto;
         justify-content: space-between;

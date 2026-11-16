@@ -7,8 +7,11 @@ import Card from '../components/card.astro';
 import Head from '../components/head.astro';
 import Header from '../components/header.astro';
 import Navbar from '../components/navbar.astro';
+import SummaryCard from '../components/summary-card.astro';
 
 const reviews = await getCollection('reviews', (review) => !review.data.isDraft);
+//const mentions = await getCollection('reviews', (review) => !review.data.isMention);
+const summaries = await getCollection('summaries');
 const listYears: Set<number> = new Set();
 const sortedReviews = reviews.sort((a, b) => a.data.finishedAt.getTime() - b.data.finishedAt.getTime());
 sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
@@ -23,11 +26,29 @@ sortedReviews.map((r) => listYears.add(r.data.finishedAt.getFullYear()));
 		<div class="navbar">
 			<Navbar listYears={listYears}></Navbar>
 		</div>
-		<div class="list-games">
+		<div data-section="reviews" class="list-games">
 			{sortedReviews.map((game) => (
 					<Card game={game}></Card>
+				))
+			}
+		</div>		
+		<div data-section="summaries" class="list-summaries">
+			{summaries.map((game) => (
+					<SummaryCard game={game}></SummaryCard>
 				))
 			}
 		</div>
 	</body>
 </html>
+
+<script>
+	const sections = document.querySelectorAll<HTMLElement>('[data-section]');
+
+	// Comprobamos el evento lanzado desde el navbar, para ver si lo que se ve son las reviews o los resumenes
+	document.addEventListener('section-change', (event) => {
+		const { section } = (event as CustomEvent<{ section: string }>).detail;
+		sections.forEach((el) => {
+			el.hidden = el.dataset.section !== section;
+		});
+	});
+</script>

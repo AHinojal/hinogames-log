@@ -6,20 +6,18 @@ interface Props {
   listYears: Set<number>
 }
 
-enum Options {
-  REVIEWS = "HISTÓRICO",
-  SUMMARIES = "RESUMEN",
-  //MENTIONS = "MENCIONES HINORÍFICAS"
-}
-
 const { listYears } = Astro.props;
-const LIST_OPTIONS = Object.values(Options) ;
+const LIST_OPTIONS = [
+	{ key: 'reviews', label: 'HISTÓRICO' },
+	{ key: 'summaries', label: 'RESUMEN' },
+	//{ key: 'mentions', label: 'MENCIONES HINORÍFICAS' },
+];
 ---
 
 <div class="option-navbar">
 	<ul class="list-options">
 		{LIST_OPTIONS.map((option) => (
-			<li data-option={option}>{option}</li>
+			<li data-option={option.key}>{option.label}</li>
 		))}
 	</ul>
 </div>
@@ -38,7 +36,7 @@ const LIST_OPTIONS = Object.values(Options) ;
 		});
 	}
 	function updateVisibleYearsNavbar(yearsNavbar: any) {
-		if (selectedOption === 'HISTÓRICO') {
+		if (selectedOption === 'reviews') {
 			yearsNavbar.style.display = '';
 		} else{
 			yearsNavbar.style.display = 'none';
@@ -46,22 +44,24 @@ const LIST_OPTIONS = Object.values(Options) ;
 	}	
 	// Seleccionamos todos los span de los años
 	const options = document.querySelectorAll<HTMLElement>('.list-options li');
-	console.log("🚀 ~ options:", options)
 	const yearsNavbar = document.querySelector<HTMLElement>('.years-navbar');
 	console.log("🚀 ~ yearsNavbar:", yearsNavbar)
 	// Mostramos como estado inicial el historial
-	let selectedOption: string = 'HISTÓRICO';
+	let selectedOption: string = 'reviews';
 	updateSelectedOptionStyle(selectedOption);
 	updateVisibleYearsNavbar(yearsNavbar);
 	// Por cada opcion, tenemos que escuchar el evento si el boton es pulsado
 	options.forEach((option) => {
 		option.addEventListener('click', () => {
-			// // Guardamos el año seleccionado
-			selectedOption = option.dataset.option || 'HISTÓRICO';
-			console.log("🚀 ~ selectedOption:", selectedOption)
-			// // Buscamos entre las cartas que tenemos y elegimos su visiblidad
+			// Guardamos el año seleccionado
+			selectedOption = option.dataset.option || 'reviews';
+			// Buscamos entre las cartas que tenemos y elegimos su visiblidad
 			updateSelectedOptionStyle(selectedOption);
 			updateVisibleYearsNavbar(yearsNavbar);
+			// Evento para decir que se ha seleccionado otra opcion
+			document.dispatchEvent(
+				new CustomEvent('section-change', { detail: { section: selectedOption } })
+			);
 		});
 	});
 </script>
