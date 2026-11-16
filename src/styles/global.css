@@ -355,6 +355,7 @@ span {
         max-width: 360px;
         justify-content: center;
         .info {
+            display: grid;
             h1 {
                 font-size: 20px;
             }        
@@ -414,7 +415,7 @@ span {
     /* Summary style */
     .summary-header {
         h1 {
-            font-size: 22px;
+            font-size: 21px;
             margin: 0 10px;
         }
         .stars{
