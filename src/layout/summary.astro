@@ -11,16 +11,16 @@ const star = `${BASE_URL}/summary.svg`;
 
 interface Props {
   data: {
-    title: string;
+    year: string;
   };
 }
 
-const { title } = Astro.props.data;
+const { year } = Astro.props.data;
 ---
 
 <html lang="es">
   <head>
-    <Head title={`${title} — HinoGames`}></Head>
+    <Head title={`Resumen ${year} — HinoGames`}></Head>
   </head>
 	<body>
     <Header></Header>
@@ -32,7 +32,7 @@ const { title } = Astro.props.data;
             <span class="star" style={`--icon: url(${star})`}></span>
             <span class="star" style={`--icon: url(${star})`}></span>
           </div>
-          <h1>{title}</h1>
+          <h1>RESUMEN {year}</h1>
           <div class="stars">
             <span class="star" style={`--icon: url(${star})`}></span>
             <span class="star" style={`--icon: url(${star})`}></span>
